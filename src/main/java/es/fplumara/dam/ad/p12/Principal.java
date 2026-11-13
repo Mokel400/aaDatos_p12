@@ -3,6 +3,8 @@ package es.fplumara.dam.ad.p12;
 import es.fplumara.dam.ad.p12.modelo.Empresa;
 import es.fplumara.dam.ad.p12.modelo.Version;
 import es.fplumara.dam.ad.p12.modelo.Videojuego;
+import es.fplumara.dam.ad.p12.retos.Azul;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -72,6 +74,17 @@ public class Principal {
                 System.out.println("Versiones de " + juegoDeLasVersiones.getTitulo() + ": " + versiones.size());
                 for (int i = 0; i < versiones.size(); i++) {
                     System.out.println(" " + versiones.get(i));
+                }
+
+                //Reto Azul
+                System.out.println();
+                int minimo = 2;
+                List<Videojuego> juegosMultijugador = Azul.buscarMultijugador(conexion, minimo);
+                System.out.println();
+                System.out.println("Juegos con al menos" + minimo + "jugadores: " + juegosMultijugador.size());
+                for (int i = 0; i < juegosMultijugador.size(); i++) {
+                    System.out.println(" " + juegosMultijugador.get(i));
+                    System.out.println("    " + juegosMultijugador.get(i).getDescripcion());
                 }
             }
         } catch (IOException e) {
